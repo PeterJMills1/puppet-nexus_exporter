@@ -2,6 +2,7 @@ class nexus_exporter::params {
 
 #Install Config
   $script_dir            = '/opt/nexus_exporter'
+  $pip_modules          = [' pytz','objectpath','prometheus_client','pyYAML']
 
 #Service Config
   $service_ensure        = 'running'

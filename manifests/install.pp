@@ -1,16 +1,22 @@
 class nexus_exporter::install (
-  $script_dir = $nexus_exporter::script_dir,
+  $script_dir   = $nexus_exporter::script_dir,
+  $pip_modules  = $nexus_exporter::pip_modules,
 ) {
 
+  package { $pip_modules:
+    ensure   => present,
+    provider => 'pip',
+  }
+
   file { $script_dir:
-    ensure => 'directory',
+    ensure  => 'directory',
   }
 
   file { ' nexus_exporter:install:script':
     ensure  => 'present',
     path    => "${script_dir}/exporter.py",
     mode    => '0644',
-    source => "puppet:///modules/nexus_exporter${script_dir}/exporter.py",
+    source  => "puppet:///modules/nexus_exporter${script_dir}/exporter.py",
   }
 
   file { 'nexus_exporter:install:config_file':
