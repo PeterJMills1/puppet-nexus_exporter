@@ -22,7 +22,7 @@ class nexus_exporter::params {
 
   $service_ensure   = 'running'
   $service_enable   = true
-  $service_template = 'nexusmetrics/nexus_exporter.service.erb'
+  $service_template = 'nexus_exporter/usr/lib/systemd/system/nexus_exporter.service.erb'
   $service_file     = '/usr/lib/systemd/system/nexus_exporter.service' 
 
 }

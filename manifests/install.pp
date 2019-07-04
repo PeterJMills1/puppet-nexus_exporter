@@ -13,13 +13,13 @@ class nexus_exporter::install (
     ensure  => 'present',
     path    => '/opt/nexus_exporter/exporter.py',
     mode    => '0644',
-    content => template('nexusmetrics/exporter.py.erb'),
+    content => template('nexus_exporter/opt/nexus/exporter.py.erb'),
   }
 
   file { 'nexus_exporter:install:config_file':
     ensure  => 'present',
     path    => '/opt/nexus_exporter/config.yml',
     mode    => '0644',
-    content => template('nexusmetrics/config.yml.erb'),
+    content => template('nexus_exporter/opt/nexus/config.yml.erb'),
   }
 }
