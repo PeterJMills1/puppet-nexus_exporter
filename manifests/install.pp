@@ -10,7 +10,7 @@ class nexus_exporter::install (
     ensure  => 'present',
     path    => "${script_dir}/exporter.py",
     mode    => '0644',
-    content => template("nexus_exporter${script_dir}/exporter.py.erb"),
+    source => "puppet:///modules/nexus_exporter${script_dir}/exporter.py",
   }
 
   file { 'nexus_exporter:install:config_file':
