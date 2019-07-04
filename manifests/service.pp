@@ -1,4 +1,3 @@
-
 class nexus_exporter::service (
   $service_ensure   = $nexus_exporter::service_ensure,
   $service_enable   = $nexus_exporter::service_enable,

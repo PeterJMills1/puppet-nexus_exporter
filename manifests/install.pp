@@ -1,25 +1,22 @@
 class nexus_exporter::install (
-  $script_location         = $nexus_exporter::script_location,
-  $script_name             = $nexus_exporter::script_name,
-  $config_location         = $nexus_exporter::config_location,
-  $config_name             = $nexus_exporter::config_name,
+  $script_dir = $nexus_exporter::script_dir,
 ) {
 
-  file { '/opt/nexus_exporter/':
+  file { $script_dir:
     ensure => 'directory',
   }
 
   file { ' nexus_exporter:install:script':
     ensure  => 'present',
-    path    => '/opt/nexus_exporter/exporter.py',
+    path    => "${script_dir}/exporter.py",
     mode    => '0644',
-    content => template('nexus_exporter/opt/nexus/exporter.py.erb'),
+    content => template("nexus_exporter${script_dir}/exporter.py.erb"),
   }
 
   file { 'nexus_exporter:install:config_file':
     ensure  => 'present',
-    path    => '/opt/nexus_exporter/config.yml',
+    path    => "${script_dir}/config.yml",
     mode    => '0644',
-    content => template('nexus_exporter/opt/nexus/config.yml.erb'),
+    content => template("nexus_exporter${script_dir}/config.yml.erb"),
   }
 }

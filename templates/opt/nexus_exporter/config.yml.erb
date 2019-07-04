@@ -1,0 +1,13 @@
+exporter_port: <%= @exporter_port %>
+namespace: <%= @namespace %>
+log_level: <%= @log_level %>
+host: <%= @host %>
+basic_auth_user: <%= @nexus_user %>
+basic_auth_password: <%= @nexus_user_password %>
+json_data_url: <%= @json_data_url %>
+metric_name_prefix: <%= @metric_name_prefix %> 
+metrics:
+- type: gauge
+  path: $.gauges
+- type: meters
+  path: $.meters
