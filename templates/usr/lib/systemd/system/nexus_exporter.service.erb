@@ -1,0 +1,12 @@
+[Unit]
+Description=Nexus Metrics Exporter Service
+Requires=nexus.service
+After=nexus.service
+
+[Service]
+Type=idle
+ExecStartPre=/bin/sleep 80
+ExecStart=/usr/bin/python <%= @script_location %>/<%= @script_name %> <%= @config_location %>/<%= @config_name %> # /opt/nexus_metrics_exporter/exporter.py /opt/nexus_metrics_exporter/config.yml
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,13 @@
+exporter_port: <%= @exporter_port %> # 9184
+namespace: <%= @namespace %> # nexus
+log_level: <%= @log_level %> # info
+host: <%= @host %> # localhost
+basic_auth_user: <%= @nexus_user %> # metrics_exporter
+basic_auth_password: <%= @nexus_user_password %>
+json_data_url: <%= @json_data_url %> # http://127.0.0.1:8081/service/metrics/data
+metric_name_prefix: <%= @metric_name_prefix %> # nexus
+metrics:
+- type: gauge
+  path: $.gauges
+- type: meters
+  path: $.meters
