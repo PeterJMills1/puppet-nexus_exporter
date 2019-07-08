@@ -7,8 +7,7 @@ class nexus_exporter (
   $script_dir            = $nexus_exporter::params::script_dir,
   $service_ensure        = $nexus_exporter::service_ensure,
   $service_enable        = $nexus_exporter::service_enable,
-  $service_dir           = $nexus_exporter::service_dir,
-  $service_file          = $nexus_exporter::service_file,  
+  $service_dir           = $nexus_exporter::service_dir, 
 
 ) inherits nexus_exporter::params {
 
