@@ -1,14 +1,13 @@
 class nexus_exporter::service (
   $service_ensure   = $nexus_exporter::service_ensure,
   $service_enable   = $nexus_exporter::service_enable,
-  $service_template = $nexus_exporter::service_template,
-  $service_file     = $nexus_exporter::service_file,    
+  $service_dir      = $nexus_exporter::service_dir,   
 ) {
 
   file { 'nexus_exporter:service:install-unit-file':
     ensure  => 'present',
-    path    => $service_file,
-    content => template($service_template),
+    path    =>  "${service_dir}/nexus_exporter.service",
+    content => template("nexus_exporter${service_dir}/nexus_exporter.service.erb"),
     mode    => '0644',
   }
 
